@@ -4,7 +4,7 @@ import statsmodels.formula.api as smf
 import csv
 from sklearn.model_selection import train_test_split
 
-file = "combined_data_jul25.csv"
+file = "data/combined_data_jul25.csv"
 data = pd.read_csv(file, index_col=0)
 
 
@@ -25,8 +25,6 @@ def scatter_plot(indep, dep, dataset):
 
     print(filename)
     print("rsquared: " + str(lm.rsquared))
-    print(dir(lm))
-    print(lm.pvalues)
     preds = lm.predict(X_new)
 
     data.plot(kind='scatter', x=indep, y=dep)
@@ -51,14 +49,13 @@ def predict(coeffs, dataset):
     vs_35_count = 0
     vs_NCAA_3_count = 0
 
-    file = open("volume_data.csv", 'a')
+    file = open("data/volume_data.csv", 'a')
 
     for index, row in dataset.iterrows():
         college_3_percent = row['threeP_percent']
         college_ft_percent = row['FT_percent']
         threePAG = row['threePAG']
         NBA_3 = row['NBA_3P_percent']
-
 
         predicted_NBA_3 = float(coeffs[0]) + (float(coeffs[1]) * float(college_3_percent)) + (float(coeffs[2]) * float(college_ft_percent))
 
