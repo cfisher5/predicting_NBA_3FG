@@ -1,0 +1,19 @@
+Regression:
+=0.143531 + K2* 0.221629 + N2 * 0.157946
+
+Accuracy:
+=IF(AND(X2>=Y2-0.02, X2<=Y2+0.02),TRUE,FALSE)
+
+vs 35%:
+=IF(AND(X2>=0.33,X2<=0.37),TRUE,FALSE)
+
+NBA_3P_percent~threeP_percent
+rsquared: 0.151972651708
+NBA_3P_percent~FT_percent
+rsquared: 0.204846534782
+NBA_3P_percent~threePAG
+rsquared: 0.0644399571647
+0.246437634902
+Intercept         0.129380
+threeP_percent    0.210019
+FT_percent        0.187702
